@@ -31,8 +31,8 @@ class DepartmentsController < ApplicationController
 
   def update
 
-    if @department.update(departments_params)
-      redirect_to @department
+    if @department.update(department_params)
+      redirect_to department_path(@department)
     else
       render :edit
     end
@@ -46,11 +46,13 @@ class DepartmentsController < ApplicationController
 
   private
   
-  def departments_params
-    params.require(:department).permit(:name)
-  end
-
   def set_department
     @department = Department.find(params[:id])
   end
+  
+  def department_params
+    params.require(:department).permit(:name)
+  end
+
+  
 end

@@ -2,6 +2,6 @@
 <%= link_to 'Create a New Item', new_department_item_path(@department)%>
 <ul>
   <% @items.each do |item| %>
-  <li><%= link_to item.name, [@department, item] %></li>
+  <li><%= link_to item.name, department_item_path(@department, item) %></li>
   <% end %>
 </ul>
